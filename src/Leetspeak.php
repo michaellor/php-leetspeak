@@ -25,14 +25,30 @@
     function makeLeetspeak($input)
     {
         $initialArray = str_split($input);
+        // var_dump($initialArray);
         $modifiedArray = array();
+        $newString = "";
 
-        if (in_array("e", $initialArray))
-            {
-                $eIndex = array_search("e", $initialArray);
+        foreach ($initialArray as $letter)
+        {
+            echo $letter;
+            if ($letter == "e")
+                {   $eIndex = array_search($letter, $initialArray);
+                    echo $eIndex;
+                    // $input = "3";
+                    // unset($initialArray[$eIndex]);
+                    array_push($modifiedArray, "3");
+                    // echo $eIndex;
+                    // $modifiedArray = array($eIndex => "3");
+                    var_dump($initialArray);
+
+                }
+            else {
+                array_push($modifiedArray, $letter);
             }
+        }
+        $newString = implode($modifiedArray);
 
-        // $eIndex = array_search("e", $initialArray);
-
+        return $newString;
     }
 ?>
