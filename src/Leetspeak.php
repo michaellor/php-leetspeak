@@ -29,20 +29,29 @@
         $modifiedArray = array();
         $newString = "";
 
-        foreach ($initialArray as $letter)
+        foreach ($initialArray as $key=>$letter)
         {
-            echo $letter;
             if ($letter == "e")
                 {   $eIndex = array_search($letter, $initialArray);
-                    echo $eIndex;
-                    // $input = "3";
-                    // unset($initialArray[$eIndex]);
                     array_push($modifiedArray, "3");
-                    // echo $eIndex;
-                    // $modifiedArray = array($eIndex => "3");
-                    var_dump($initialArray);
-
                 }
+            elseif ($letter == "o")
+                {   $eIndex = array_search($letter, $initialArray);
+                    array_push($modifiedArray, "0");
+                }
+            elseif ($letter == "I")
+                {   $eIndex = array_search($letter, $initialArray);
+                    array_push($modifiedArray, "1");
+                }
+            elseif (($letter == "s") && ($key != 0))
+
+                {   $eIndex = array_search($letter, $initialArray);
+                    echo $eIndex;
+                    array_push($modifiedArray, "z");
+                }
+
+
+
             else {
                 array_push($modifiedArray, $letter);
             }
