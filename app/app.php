@@ -15,11 +15,11 @@
         return $app['twig']->render('form.html.twig');
     });
 
-    $app->post("/", function() use ($app) {
-        // $my_input = new Leetspeak();
-        $input = $_POST['input'];
-        $output = makeLeetspeak($input);
-        return $app['twig']->render('form.html.twig', array('returns' => $output));
+    $app->post("/leet", function() use ($app) {
+
+        $my_input = $_POST['input'];
+        $output = makeLeetspeak($my_input);
+        return $app['twig']->render('leet.html.twig', array('returns' => $output)) ;
     });
 
     return $app;
