@@ -61,7 +61,6 @@
             }
             array_push($modifiedArray, " ");
             // $newWord = implode($modifiedArray);
-
         }
         array_pop($modifiedArray);
         $newSentence = implode($modifiedArray);
