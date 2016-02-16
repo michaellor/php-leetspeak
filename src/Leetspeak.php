@@ -24,40 +24,48 @@
 
     function makeLeetspeak($input)
     {
-        $initialArray = str_split($input);
-        // var_dump($initialArray);
+
+        $wordArr = explode(" ", $input);
         $modifiedArray = array();
-        $newString = "";
 
-        foreach ($initialArray as $key=>$letter)
+        foreach ($wordArr as $key=>$word)
         {
-            if ($letter == "e")
-                {   $eIndex = array_search($letter, $initialArray);
-                    array_push($modifiedArray, "3");
-                }
-            elseif ($letter == "o")
-                {   $eIndex = array_search($letter, $initialArray);
-                    array_push($modifiedArray, "0");
-                }
-            elseif ($letter == "I")
-                {   $eIndex = array_search($letter, $initialArray);
-                    array_push($modifiedArray, "1");
-                }
-            elseif (($letter == "s") && ($key != 0))
 
-                {   $eIndex = array_search($letter, $initialArray);
-                    echo $eIndex;
-                    array_push($modifiedArray, "z");
+            $initialArray = str_split($word, 1);
+            // var_dump($initialArray);
+
+            foreach ($initialArray as $key=>$letter)
+            {
+
+                if ($letter == "e")
+                    {   $eIndex = array_search($letter, $initialArray);
+                        array_push($modifiedArray, "3");
+                    }
+                elseif ($letter == "o")
+                    {   $eIndex = array_search($letter, $initialArray);
+                        array_push($modifiedArray, "0");
+                    }
+                elseif ($letter == "I")
+                    {   $eIndex = array_search($letter, $initialArray);
+                        array_push($modifiedArray, "1");
+                    }
+                elseif (($letter == "s") && ($key != 0))
+                    {
+                        array_push($modifiedArray, "z");
+                    }
+
+                else {
+                    array_push($modifiedArray, $letter);
                 }
 
-
-
-            else {
-                array_push($modifiedArray, $letter);
             }
-        }
-        $newString = implode($modifiedArray);
+            array_push($modifiedArray, " ");
+            // $newWord = implode($modifiedArray);
 
-        return $newString;
+        }
+        array_pop($modifiedArray);
+        $newSentence = implode($modifiedArray);
+
+        return $newSentence;
     }
 ?>
